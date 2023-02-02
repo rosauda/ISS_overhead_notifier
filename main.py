@@ -1,11 +1,16 @@
 import requests
 from datetime import datetime
 import mpu
+import smtplib
 
 # ---------------------------- CONSTANTS ------------------------------- #
 
 MY_LAT = 53.551086
 MY_LOG = 9.993682
+MY_EMAIL = "pythons22023@gmail.com"
+MY_PASSWORD = "mvbgwlpjlmfjksfy"
+EMAIL_TO = "pythons22023@gmail.com"
+
 
 # ---------------------------- GETTING ISS CURRENT POSITION USING API ------------------------------- #
 
@@ -60,6 +65,16 @@ else:
 
 # ---------------------------- SENDING EMAIL ------------------------------- #
 
+if send_email:
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs=EMAIL_TO,
+                            msg=f"Subject: ISS is here!\n\n"
+                                "LOOK UP!")
+else:
+    pass
 
 
 
