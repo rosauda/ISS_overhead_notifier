@@ -11,7 +11,6 @@ MY_EMAIL = "pythons22023@gmail.com"
 MY_PASSWORD = "mvbgwlpjlmfjksfy"
 EMAIL_TO = "pythons22023@gmail.com"
 
-
 # ---------------------------- GETTING ISS CURRENT POSITION USING API ------------------------------- #
 
 # International space station current location
@@ -43,11 +42,9 @@ data = response.json()
 sunrise_hour = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
 sunset_hour = int(data["results"]["sunset"].split("T")[1].split(":")[0])
 
-
 # Time now. extracting hour
 time_now = datetime.now()
 hour_now = int(time_now.hour)
-
 
 # ---------------------------- CHECKING CONDITIONS TO SEND EMAIL ------------------------------- #
 # Conditions to be checked
@@ -75,12 +72,3 @@ if send_email:
                                 "LOOK UP!")
 else:
     pass
-
-
-
-
-
-
-
-
-
